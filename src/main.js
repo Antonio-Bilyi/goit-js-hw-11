@@ -16,6 +16,15 @@ formEl.addEventListener('submit', e => {
 
     const query = e.target.elements['search-text'].value.trim();
 
+    if (!query) {
+        iziToast.warning({
+          title: 'Attentione',
+          message: 'The field cannot be empty!',
+          position: 'topRight'
+        });
+        return;
+      }
+
     showLoader();
 
     getImagesByQuery(query)
